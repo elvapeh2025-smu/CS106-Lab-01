@@ -7,14 +7,21 @@
  *   Max ops: 2
  *   Rating: 1
  */
+
+// ...0101 = 0, 0000 = 1 non-zero will alw return 1, so need opp
+
 int isZero(int x)
 {
-    return 2;
+    return !(x & 0xFFFFFFFF);
 }
 
 int test_isZero(int x)
 {
-    return x == 0;
+    if (x == 0) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
 int main(void)

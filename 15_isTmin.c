@@ -9,17 +9,21 @@
  */
 int isTmin(int x)
 {
-    return 2;
+    return !(x ^ (1 << 31)); 
 }
 
 int test_isTmin(int x)
 {
-    return x == 0x80000000;
+    if (x == 0x80000000) {
+        return 1;
+    } else {
+        return 0; 
+    }
 }
 
 int main(void)
 {
-    int x = 0;
-    printf("expected: %x\n", isTmin(x));
-    printf("actual  : %x\n", test_isTmin(x));
+    int x = 0x80000000;
+    printf("actual: %x\n", isTmin(x));
+    printf("expected  : %x\n", test_isTmin(x));
 }

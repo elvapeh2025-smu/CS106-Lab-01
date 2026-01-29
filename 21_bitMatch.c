@@ -8,9 +8,27 @@
  *   Max ops: 14
  *   Rating: 1
  */
+
+ /*
+
+ case 1: match on 1
+ case 2: match on 0 
+
+ 0101
+ 1001
+ ____
+ 0011
+
+ 0101
+ 0110
+ ____
+ 1100
+ 
+ */
+
 int bitMatch(int x, int y)
 {
-    return 2;
+    return ~(x & ~y); 
 }
 
 int test_bitMatch(int x, int y)
@@ -27,8 +45,8 @@ int test_bitMatch(int x, int y)
 
 int main(void)
 {
-    int x = 0;
-    int y = 0;
+    int x = 130;
+    int y = 2;
     printf("expected: %x\n", bitMatch(x, y));
     printf("actual  : %x\n", test_bitMatch(x, y));
 }
